@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://monkrythm:bQD9zHdEVL5eNjEH@cluster0.iabfzx1.mongodb.net/IDS
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
