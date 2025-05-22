@@ -1,6 +1,6 @@
 
 server:
-  port: 8888
+  port: 8083
 app:
   jwtSecret: MySuperSecretJwtKeyThatIsAtLeast512BitsLongMySuperSecretJwtKeyThatIsAtLeast512BitsLong
   jwtExpirationInMs: 86400000 # 1 day in milliseconds
