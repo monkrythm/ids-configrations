@@ -31,7 +31,9 @@ spring:
             - name: CircuitBreaker
               args:
                 name: notification-service-cb
-                fallbackUri: forward:/fallback  
+                fallbackUri: forward:/fallback
+                statusCodes: INTERNAL_SERVER_ERROR
+                methods: GET,POST
         - id: delivery-service
           uri: lb://delivery-service
           predicates:
