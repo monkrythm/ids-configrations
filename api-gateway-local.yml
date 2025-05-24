@@ -27,10 +27,25 @@ spring:
           uri: lb://notification-service
           predicates:
             - Path=/api/notifications/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: notification-service-cb
+                fallbackUri: forward:/fallback/notification  
         - id: delivery-service
           uri: lb://delivery-service
           predicates:
             - Path=/api/delivery/**
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      notification-service-cb:
+        sliding-window-size: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+
 
 eureka:
   client:
