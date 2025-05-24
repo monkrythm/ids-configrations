@@ -27,27 +27,35 @@ management:
         include: "*"
 
 resilience4j:
+
+  retry:
+    instances:
+      backendService:
+        max-attempts: 3
+        wait-duration: 1s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+
+  circuitbreaker:
+    instances:
+      backendService:
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 5s
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 5
+        minimum-number-of-calls: 3
+        permitted-number-of-calls-in-half-open-state: 2
+        automatic-transition-from-open-to-half-open-enabled: true
+
   ratelimiter:
     instances:
       backendService:
         limit-for-period: 2
         limit-refresh-period: 10s
         timeout-duration: 0
-        
-  circuitbreaker:
-    backendService:
-      failure-rate-threshold: 50
-      wait-duration-in-open-state: 5s
-      sliding-window-size: 5
-      
-  ratelimiter:
-    backendService:
-      limit-for-period: 2
-      limit-refresh-period: 10s
-      timeout-duration: 500ms
 
 logging:
   level:
-    io.github.resilience4j.ratelimiter: DEBUG
+    io.github.resilience4j: DEBUG
 
         
