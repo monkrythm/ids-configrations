@@ -25,3 +25,15 @@ management:
     web:
       exposure:
         include: "*"
+
+resilience4j:
+  retry:
+    configs:
+      default:
+        maxRetryAttempts: 3
+        waitDuration: 10s
+    instances:
+      generalRetry:
+        baseConfig: default
+        waitDuration: 200ms
+        
