@@ -67,4 +67,5 @@ logging:
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.gateway.filter.factory: DEBUG
     org.springframework.cloud.circuitbreaker: DEBUG
+    reactor.netty: INFO
 
