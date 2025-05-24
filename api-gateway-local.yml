@@ -64,12 +64,3 @@ logging:
   level:
     org.springframework.cloud.gateway: DEBUG
 
-resilience4j:
-  circuitbreaker:
-    configs:
-      default:
-        registerHealthIndicator: true
-        slidingWindowSize: 10
-        failureRateThreshold: 50
-        waitDurationInOpenState: 10s
-
