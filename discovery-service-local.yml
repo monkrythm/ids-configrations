@@ -3,6 +3,7 @@ server:
   port: 8083
 key:
   name: Discovery Service Application Value From Git Hub
+  status: Config Server Service UP and WORKING from GIT Hub
 spring:
   application:
     name: discovery-service 
