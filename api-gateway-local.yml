@@ -47,6 +47,8 @@ resilience4j:
         sliding-window-size: 5
         failure-rate-threshold: 50
         wait-duration-in-open-state: 10s
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3 
 
 
 eureka:
