@@ -27,20 +27,35 @@ management:
         include: "*"
 
 resilience4j:
-  retry:
-    configs:
-      default:
-        maxRetryAttempts: 3
-        waitDuration: 10s
+  circuitbreaker:
     instances:
-      generalRetry:
-        baseConfig: default
-        waitDuration: 200ms
+      backendA:
+        registerHealthIndicator: true
+        minimumNumberOfCalls: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        recordExceptions:
+          - java.lang.Exception
+        ignoreExceptions:
+          - io.github.resilience4j.core.RequestNotPermitted
+  retry:
+    instances:
+      retryBackendA:
+        maxAttempts: 3
+        waitDuration: 1s
+        retryExceptions:
+          - java.lang.Exception
+        ignoreExceptions:
+          - io.github.resilience4j.core.RequestNotPermitted
   ratelimiter:
     instances:
-      generalRateLimiter:
-        limitRefreshPeriod: 5s
-        limitForPeriod: 1
-        timeoutDuration: 1s
+      backendARateLimiter:
+        limitForPeriod: 10
+        limitRefreshPeriod: 10s
+        timeoutDuration: 3s
+        eventConsumerBufferSize: 100
 
         
