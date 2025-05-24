@@ -2,7 +2,8 @@
 server:
   port: 8084
 key:
-  name: Notification  Service Application Value From Git Hub
+  name: Notification Service Application Value From Git Hub
+  status: Notification Service UP and WORKING from GIT Hub
 spring:
   application:
     name: notification-service 
