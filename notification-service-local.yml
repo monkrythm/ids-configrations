@@ -1,8 +1,23 @@
+
 server:
   port: 8084
-
-key:  
-  name: Notification Service Application Value
+key:
+  name: Notification  Service Application Value From Git Hub
+spring:
+  application:
+    name: notification-service 
+  cloud:    
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8083/eureka/
 
 management:
   endpoints:
