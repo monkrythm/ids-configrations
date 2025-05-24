@@ -1,16 +1,22 @@
-app:
-  jwtSecret: MySuperSecretJwtKeyThatIsAtLeast512BitsLongMySuperSecretJwtKeyThatIsAtLeast512BitsLong
-  jwtExpirationInMs: 86400000 # 1 day in milliseconds
-
+server:
+  port: 8083
+key:
+  name: Discovery Service Application Value From Git Hub
 spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/authdb
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  application:
+    name: discovery-service 
+  cloud:    
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8083/eureka/
 
 management:
   endpoints:
