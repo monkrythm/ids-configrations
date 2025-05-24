@@ -36,11 +36,5 @@ resilience4j:
       generalRetry:
         baseConfig: default
         waitDuration: 200ms
-   ratelimiter:
-    instances:
-      generalRateLimiter:
-        limitRefreshPeriod: 5s
-        limitForPeriod: 1
-        timeoutDuration: 1s
 
         
