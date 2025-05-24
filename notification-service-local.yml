@@ -33,11 +33,13 @@ resilience4j:
         limit-for-period: 2
         limit-refresh-period: 10s
         timeout-duration: 0
+        
   circuitbreaker:
     backendService:
       failure-rate-threshold: 50
       wait-duration-in-open-state: 5s
       sliding-window-size: 5
+      
   ratelimiter:
     backendService:
       limit-for-period: 2
