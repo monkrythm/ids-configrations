@@ -27,35 +27,22 @@ management:
         include: "*"
 
 resilience4j:
-  circuitbreaker:
-    instances:
-      backendA:
-        registerHealthIndicator: true
-        minimumNumberOfCalls: 10
-        permittedNumberOfCallsInHalfOpenState: 3
-        automaticTransitionFromOpenToHalfOpenEnabled: true
-        waitDurationInOpenState: 5s
-        failureRateThreshold: 50
-        eventConsumerBufferSize: 10
-        recordExceptions:
-          - java.lang.Exception
-        ignoreExceptions:
-          - io.github.resilience4j.core.RequestNotPermitted
   retry:
-    instances:
-      retryBackendA:
-        maxAttempts: 3
-        waitDuration: 1s
-        retryExceptions:
-          - java.lang.Exception
-        ignoreExceptions:
-          - io.github.resilience4j.core.RequestNotPermitted
+    backendService:
+      max-attempts: 3
+      wait-duration: 1s
+
+  circuitbreaker:
+    backendService:
+      failure-rate-threshold: 50
+      wait-duration-in-open-state: 5s
+      sliding-window-size: 5
+
   ratelimiter:
-    instances:
-      backendARateLimiter:
-        limitForPeriod: 10
-        limitRefreshPeriod: 10s
-        timeoutDuration: 3s
-        eventConsumerBufferSize: 100
+    backendService:
+      limit-for-period: 2
+      limit-refresh-period: 10s
+      timeout-duration: 500ms
+
 
         
