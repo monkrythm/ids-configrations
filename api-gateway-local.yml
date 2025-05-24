@@ -1,11 +1,12 @@
 server:
   port: 8080
-
+key:
+  name: Gateway Service Application Value From Git Hub
 
 spring:
   application:
-    name: api-gateway
-  
+    name: api-gateway  
+  cloud:    
     gateway:
       discovery:
         locator:
@@ -55,9 +56,4 @@ resilience4j:
         slidingWindowSize: 10
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
-
-key:  
-  name: Gateway Service Application Value
-
-
 
