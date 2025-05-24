@@ -1,16 +1,8 @@
-app:
-  jwtSecret: MySuperSecretJwtKeyThatIsAtLeast512BitsLongMySuperSecretJwtKeyThatIsAtLeast512BitsLong
-  jwtExpirationInMs: 86400000 # 1 day in milliseconds
+server:
+  port: 8084
 
-spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/authdb
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+key:  
+  name: Notification Service Application Value
 
 management:
   endpoints:
