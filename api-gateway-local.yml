@@ -1,6 +1,8 @@
 server:
   port: 8080
 
+key:  
+  name: Gateway Service Application Value
 management:
   endpoints:
     web:
