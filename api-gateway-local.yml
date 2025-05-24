@@ -31,7 +31,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: notification-service-cb
-                fallbackUri: forward:/fallback/notification  
+                fallbackUri: forward:/fallback  
         - id: delivery-service
           uri: lb://delivery-service
           predicates:
