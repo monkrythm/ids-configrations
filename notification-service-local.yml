@@ -44,5 +44,8 @@ resilience4j:
       limit-refresh-period: 10s
       timeout-duration: 500ms
 
+logging:
+  level:
+    io.github.resilience4j.ratelimiter: DEBUG
 
         
