@@ -2,6 +2,7 @@ server:
   port: 8080
 key:
   name: Gateway Service Application Value From Git Hub
+  status: Gateway Service UP and WORKING from GIT Hub
 
 spring:
   application:
