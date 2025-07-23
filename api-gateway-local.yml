@@ -42,6 +42,8 @@ spring:
           uri: lb://delivery-service
           predicates:
             - Path=/api/delivery/**
+     default-filters:
+        - TokenRelay       
 
 
 resilience4j:
