@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 6063
 key:
   name: Gateway Service Application Value From Git Hub
   status: Gateway Service UP and WORKING from GIT Hub
